@@ -20,6 +20,7 @@ jobs:
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+          GITHUB_REPOSITORY: virtualflybrain/solr_sideloader
 
       - name: Build image
         if: success()
