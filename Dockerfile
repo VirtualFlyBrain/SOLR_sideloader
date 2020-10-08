@@ -1,6 +1,6 @@
 FROM python:3.7-buster
 
-RUN cd /usr/src && git clone https://github.com/VirtualFlyBrain/VFB_neo4j.git 
+RUN cd /usr/src && git clone -b pipeline2 https://github.com/VirtualFlyBrain/VFB_neo4j.git 
 
 RUN cd /usr/src/VFB_neo4j/ && pip install -r requirements.txt
 
