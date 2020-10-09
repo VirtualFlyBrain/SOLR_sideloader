@@ -1,0 +1,14 @@
+on: push
+name: Build docker Demo
+jobs:
+  slackNotification:
+    name: Build docker
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build docker
+      uses: pmagentur/pm_docker_builder@v0.1
+      env:
+        USERNAME: ${{ secrets.USERNAME }}
+        PASSWORD: ${{ secrets.PASSWORD }}
+        CREATE_BACKUP: "True"
