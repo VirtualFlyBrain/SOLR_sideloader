@@ -8,4 +8,7 @@ ENV PYTHONPATH=/usr/src/VFB_neo4j/src/
 ENV PDBserver=http://pdb
 ENV SOLRserver=http://solr:8983/solr/ontology
 
-CMD ["python3","-m","uk.ac.ebi.vfb.neo4j.neo2solr.ols_neo2solr","$PDBserver","$SOLRserver"]
+COPY load.sh /
+RUN chmod +x /load.sh
+
+CMD ["/load.sh"]
