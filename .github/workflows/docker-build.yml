@@ -12,4 +12,3 @@ jobs:
         USERNAME: ${{ secrets.DOCKER_USERNAME }}
         PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
         REPOSITORY: 'solr_sideloader'
-        CREATE_BACKUP: "True"
