@@ -9,6 +9,6 @@ jobs:
     - name: Build docker
       uses: pmagentur/pm_docker_builder@v0.1
       env:
-        USERNAME: ${{ secrets.USERNAME }}
-        PASSWORD: ${{ secrets.PASSWORD }}
+        USERNAME: ${{ secrets.DOCKER_USERNAME }}
+        PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
         CREATE_BACKUP: "True"
