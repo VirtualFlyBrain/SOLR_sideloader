@@ -14,3 +14,4 @@ jobs:
         REPOSITORY: 'virtualflybrain/solr_sideloader'
         TAG: 'latest'
         DOCKERFILE_PATH: '.'
+        CREATE_BACKUP: 'True'
