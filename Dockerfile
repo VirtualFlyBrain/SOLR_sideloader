@@ -5,7 +5,7 @@ RUN cd /usr/src && git clone -b pipeline2 https://github.com/VirtualFlyBrain/VFB
 RUN cd /usr/src/VFB_neo4j/ && pip install -r requirements.txt
 
 ENV PYTHONPATH=/usr/src/VFB_neo4j/src/
-ENV PDBserver=http://pdb
+ENV PDBserver=http://pdb:7474
 ENV SOLRserver=http://solr:8983/solr/ontology
 
 COPY load.sh /
