@@ -11,4 +11,5 @@ jobs:
       env:
         USERNAME: ${{ secrets.DOCKER_USERNAME }}
         PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+        REPOSITORY: 'virtualflybrain/solr_sideloader'
         CREATE_BACKUP: "True"
