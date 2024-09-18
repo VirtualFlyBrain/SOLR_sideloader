@@ -1,17 +1,21 @@
-on: push
-name: Build docker Demo
+name: Docker Image CI
+
+on: [push]
+
 jobs:
-  slackNotification:
-    name: Build docker
+
+  build:
+
     runs-on: ubuntu-latest
+
     steps:
-    - uses: actions/checkout@v2
-    - name: Build docker
-      uses: pmagentur/pm_docker_builder@v0.1
-      env:
-        USERNAME: ${{ secrets.DOCKER_USERNAME }}
-        PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-        REPOSITORY: 'virtualflybrain/solr_sideloader'
-        TAG: 'latest'
-        DOCKERFILE_PATH: '.'
-        CREATE_BACKUP: 'True'
+    - name: Checkout
+      uses: actions/checkout@v1
+    - run: docker build . --file Dockerfile --tag virtualflybrain/solr_sideloader:${GITHUB_REF#refs/heads/}
+    - name: Dockerize
+      if: success()
+      uses: manusa/actions-publish-docker@v1.1.2
+      with:
+        name: virtualflybrain/solr_sideloader
+        username: ${{ secrets.DOCKER_HUB_USER }}
+        password: ${{ secrets.DOCKER_HUB_PASSWORD }}
